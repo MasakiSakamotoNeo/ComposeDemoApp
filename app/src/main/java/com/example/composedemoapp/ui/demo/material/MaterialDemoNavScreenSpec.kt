@@ -68,3 +68,8 @@ object AlertDialogScreenSpec : MaterialDemoNavScreenSpec {
         AlertDialogScreen()
     }
 }
+
+/**
+ * Button画面ナビゲーション仕様
+ */
+
