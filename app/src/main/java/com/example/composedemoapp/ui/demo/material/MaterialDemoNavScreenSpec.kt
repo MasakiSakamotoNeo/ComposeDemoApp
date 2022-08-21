@@ -5,6 +5,7 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.example.composedemoapp.ui.demo.material.alertdialog.AlertDialogScreen
+import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
 
 sealed interface MaterialDemoNavScreenSpec {
 
@@ -72,4 +73,19 @@ object AlertDialogScreenSpec : MaterialDemoNavScreenSpec {
 /**
  * Button画面ナビゲーション仕様
  */
+object ButtonScreenSpec : MaterialDemoNavScreenSpec {
 
+    override val title = "Button Demo"
+
+    override val route = "material_button_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        // TODO: 
+    }
+}
