@@ -1,7 +1,6 @@
 package com.example.composedemoapp.ui.demo.material
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ComposeCompilerApi
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
@@ -11,7 +10,7 @@ import com.example.composedemoapp.ui.demo.material.card.CardScreen
 import com.example.composedemoapp.ui.demo.material.checkbox.CheckBoxScreen
 import com.example.composedemoapp.ui.demo.material.circularprogress.CircularProgressIndicatorScreen
 import com.example.composedemoapp.ui.demo.material.divider.DividerScreen
-import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
+import com.example.composedemoapp.ui.demo.material.dropdown.DropdownScreen
 
 sealed interface MaterialDemoNavScreenSpec {
 
@@ -22,7 +21,8 @@ sealed interface MaterialDemoNavScreenSpec {
             CardScreenSpec,
             CheckBoxScreenSpec,
             CircularProgressIndicatorScreenSpec,
-            DividerScreenSpec
+            DividerScreenSpec,
+            DropdownScreenSpec
         )
     }
 
@@ -178,5 +178,25 @@ object DividerScreenSpec : MaterialDemoNavScreenSpec {
         navBackStackEntry: NavBackStackEntry
     ) {
         DividerScreen()
+    }
+}
+
+/**
+ * Dropdown画面ナビゲーション仕様
+ */
+object DropdownScreenSpec : MaterialDemoNavScreenSpec {
+
+    override val title = "Dropdown Demo"
+
+    override val route = "material_dropdown_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        DropdownScreen()
     }
 }
