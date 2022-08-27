@@ -9,6 +9,7 @@ import com.example.composedemoapp.ui.demo.material.alertdialog.AlertDialogScreen
 import com.example.composedemoapp.ui.demo.material.button.ButtonScreen
 import com.example.composedemoapp.ui.demo.material.card.CardScreen
 import com.example.composedemoapp.ui.demo.material.checkbox.CheckBoxScreen
+import com.example.composedemoapp.ui.demo.material.circularprogress.CircularProgressIndicatorScreen
 import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
 
 sealed interface MaterialDemoNavScreenSpec {
@@ -18,7 +19,8 @@ sealed interface MaterialDemoNavScreenSpec {
             AlertDialogScreenSpec,
             ButtonScreenSpec,
             CardScreenSpec,
-            CheckBoxScreenSpec
+            CheckBoxScreenSpec,
+            CircularProgressIndicatorScreenSpec
         )
     }
 
@@ -134,5 +136,25 @@ object CheckBoxScreenSpec : MaterialDemoNavScreenSpec {
         navBackStackEntry: NavBackStackEntry
     ) {
         CheckBoxScreen()
+    }
+}
+
+/**
+ * CircularProgressIndicator画面ナビゲーション仕様
+ */
+object CircularProgressIndicatorScreenSpec : MaterialDemoNavScreenSpec {
+
+    override val title = "CircularProgressIndicator Demo"
+
+    override val route = "material_circular_progress_indicator_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        CircularProgressIndicatorScreen()
     }
 }
