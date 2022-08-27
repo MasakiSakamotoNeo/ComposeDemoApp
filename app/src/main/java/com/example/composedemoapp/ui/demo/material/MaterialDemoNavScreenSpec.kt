@@ -1,12 +1,14 @@
 package com.example.composedemoapp.ui.demo.material
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ComposeCompilerApi
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.example.composedemoapp.ui.demo.material.alertdialog.AlertDialogScreen
 import com.example.composedemoapp.ui.demo.material.button.ButtonScreen
 import com.example.composedemoapp.ui.demo.material.card.CardScreen
+import com.example.composedemoapp.ui.demo.material.checkbox.CheckBoxScreen
 import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
 
 sealed interface MaterialDemoNavScreenSpec {
@@ -15,7 +17,8 @@ sealed interface MaterialDemoNavScreenSpec {
         fun getAllMaterialDemoNavScreenSpec() = listOf(
             AlertDialogScreenSpec,
             ButtonScreenSpec,
-            CardScreenSpec
+            CardScreenSpec,
+            CheckBoxScreenSpec
         )
     }
 
@@ -111,5 +114,25 @@ object CardScreenSpec : MaterialDemoNavScreenSpec {
         navBackStackEntry: NavBackStackEntry
     ) {
         CardScreen()
+    }
+}
+
+/**
+ * CheckBox画面ナビゲーション仕様
+ */
+object CheckBoxScreenSpec : MaterialDemoNavScreenSpec {
+
+    override val title = "CheckBox Demo"
+
+    override val route = "material_checkbox_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        CheckBoxScreen()
     }
 }
