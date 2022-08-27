@@ -10,6 +10,7 @@ import com.example.composedemoapp.ui.demo.material.button.ButtonScreen
 import com.example.composedemoapp.ui.demo.material.card.CardScreen
 import com.example.composedemoapp.ui.demo.material.checkbox.CheckBoxScreen
 import com.example.composedemoapp.ui.demo.material.circularprogress.CircularProgressIndicatorScreen
+import com.example.composedemoapp.ui.demo.material.divider.DividerScreen
 import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
 
 sealed interface MaterialDemoNavScreenSpec {
@@ -20,7 +21,8 @@ sealed interface MaterialDemoNavScreenSpec {
             ButtonScreenSpec,
             CardScreenSpec,
             CheckBoxScreenSpec,
-            CircularProgressIndicatorScreenSpec
+            CircularProgressIndicatorScreenSpec,
+            DividerScreenSpec
         )
     }
 
@@ -156,5 +158,25 @@ object CircularProgressIndicatorScreenSpec : MaterialDemoNavScreenSpec {
         navBackStackEntry: NavBackStackEntry
     ) {
         CircularProgressIndicatorScreen()
+    }
+}
+
+/**
+ * Divider画面ナビゲーション仕様
+ */
+object DividerScreenSpec : MaterialDemoNavScreenSpec {
+
+    override val title = "Divider Demo"
+
+    override val route = "material_divider_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        DividerScreen()
     }
 }
