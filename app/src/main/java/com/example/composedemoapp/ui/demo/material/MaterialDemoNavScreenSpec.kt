@@ -5,13 +5,17 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.example.composedemoapp.ui.demo.material.alertdialog.AlertDialogScreen
+import com.example.composedemoapp.ui.demo.material.button.ButtonScreen
+import com.example.composedemoapp.ui.demo.material.card.CardScreen
 import com.example.composedemoapp.ui.home.MaterialDemoScreenSpec
 
 sealed interface MaterialDemoNavScreenSpec {
 
     companion object {
         fun getAllMaterialDemoNavScreenSpec() = listOf(
-            AlertDialogScreenSpec
+            AlertDialogScreenSpec,
+            ButtonScreenSpec,
+            CardScreenSpec
         )
     }
 
@@ -86,6 +90,26 @@ object ButtonScreenSpec : MaterialDemoNavScreenSpec {
         navController: NavController,
         navBackStackEntry: NavBackStackEntry
     ) {
-        // TODO: 
+        ButtonScreen()
+    }
+}
+
+/**
+ * Card画面ナビゲーション仕様
+ */
+object CardScreenSpec : MaterialDemoNavScreenSpec {
+
+    override val title = "Card Demo"
+
+    override val route = "material_card_screen"
+
+    override fun requestNavigationRoute() = route
+
+    @Composable
+    override fun Content(
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry
+    ) {
+        CardScreen()
     }
 }
